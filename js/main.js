@@ -29,10 +29,7 @@
       const button = document.createElement('button');
       button.addEventListener('click',  () => {
         currentIndex = i;
-        dots.forEach(dot  => {
-          dot.classList.remove('current');
-        });
-        dots[currentIndex].classList.add('current');
+        updateDots();
         updateButtons();
         moveSlides();
       })
@@ -43,17 +40,26 @@
     dots[0].classList.add('current');
   }
 
+  function updateDots() {
+    dots.forEach(dot  => {
+      dot.classList.remove('current');
+    });
+    dots[currentIndex].classList.add('current');
+  }
+
   updateButtons();
   setupDots();
 
   next.addEventListener('click', ()=>{
     currentIndex++;
     updateButtons();
+    updateDots();
     moveSlides();
   })
   prev.addEventListener('click', ()=>{
     currentIndex--;
     updateButtons();
+    updateDots();
     moveSlides();
   })
 }
