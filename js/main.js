@@ -62,4 +62,8 @@
     updateDots();
     moveSlides();
   })
+
+  window.addEventListener('resize', () => {
+    moveSlides();
+  });
 }
